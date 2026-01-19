@@ -22,5 +22,3 @@ classDiagram
         +Arret()
     }
 ```
-
-## test
