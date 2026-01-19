@@ -14,7 +14,7 @@
 
 ```mermaid
 class Diagram
-    class Cellule{
+    class Cellule {
         +tuple~str~mode
         +int mode_courant
         +Marche()
