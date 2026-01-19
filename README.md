@@ -13,8 +13,8 @@
 ## Class
 
 ```mermaid
-classDiagram
-    classCellule{
+class Diagram
+    class Cellule{
         +tuple~str~mode
         +int mode_courant
         +Marche()
