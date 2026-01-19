@@ -1,6 +1,8 @@
 '''
 
 Docstring for Class01_Cellule
+test Eric
+
 '''
 #------------------------------
 class Cellule: #declaration d'une classe objet, mot clef 'class'
