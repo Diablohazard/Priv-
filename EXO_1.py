@@ -1,10 +1,72 @@
-class PositionTool: #declaration du tableau des positions
-    position = ["X", "Y", "Z"] #attribut des coordonnées
-    init = [0.0, 0.0, 0.0] #attribut des coordonnées initiales
-    Home = [10.0, 10.0, 500.0] #attribut des coordonnées Home
-    Pick = [100.0, 30.0, 120.0] #attribut des coordonnées Pick
-    Place = [100.0, 150.0, 230.0] #attribut des coordonnées Place
+class Robot:
+    """
+    Classe Robot
+    """
 
-def GetStatus(): #methode
-    "Retourne le status de la position"
-    return f"Position Tool : {str(PositionTool.position)}\n"
+    # ========= Attributs de classe =========
+    marque = "FANUC"
+    state_OK = True
+    nb_alarme = 0
+
+    # Positions outil (X, Y, Z)
+    POSITIONS = {
+        "init":  [0, 0, 0],
+        "Home":  [10, 10, 500],
+        "Pick":  [100, 30, 120],
+        "Place": [100, 150, 230]
+    }
+
+    # Position courante outil
+    pos_Tool = POSITIONS["Home"]
+
+    # ========= Méthodes =========
+    def GetStatus(self):
+        x, y, z = self.pos_Tool
+        print("marque\tstate_OK\tnb_alarme\tX\tY\tZ")
+        print(f"{Robot.marque}\t{Robot.state_OK}\t{Robot.nb_alarme}\t\t{x}\t{y}\t{z}")
+        print(
+            f"{Robot.marque} Status "
+            f"{'OK' if Robot.state_OK else 'DEFAULT'} "
+            f"({Robot.nb_alarme}) "
+            f"Position X={x} Y={y} Z={z}"
+        )
+        print("-" * 60)
+
+    def MoveHome(self):
+        self.pos_Tool = Robot.POSITIONS["Home"]
+
+    def MovePick(self):
+        self.pos_Tool = Robot.POSITIONS["Pick"]
+
+    def MovePlace(self):
+        self.pos_Tool = Robot.POSITIONS["Place"]
+
+    def RaiseDefault(self):
+        Robot.state_OK = False
+        Robot.nb_alarme += 1
+
+    def ClearDefault(self):
+        Robot.state_OK = True
+
+
+# =====================================================
+# Jeu de test (conforme à l’énoncé)
+# =====================================================
+
+print(Robot.marque)  # utilisation attribut de classe sans instanciation
+
+rob1 = Robot()  # première instance
+rob2 = Robot()  # seconde instance
+
+# Ordres sur robot 1
+rob1.GetStatus()
+rob1.MoveHome()
+rob1.RaiseDefault()
+rob1.GetStatus()
+rob1.ClearDefault()
+rob1.GetStatus()
+
+# Ordres sur robot 2
+rob2.GetStatus()
+rob2.RaiseDefault()
+rob2.GetStatus()
