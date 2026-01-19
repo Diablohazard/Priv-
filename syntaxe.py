@@ -19,4 +19,16 @@ class Cellule: #declaration d'une classe objet, mot clef 'class'
     def Arret(self): #methode
         "Arret de la cellule"
         pass #traitement de la fonction non encore definit
+
+#------------------------------
+
+if __name__ == "__main__": #structure conditionnelle de test
+    cell = Cellule() #creation objet cell de type <Cellule>
+
+    cell.Marche() #appel de la methode Marche, parametre 'self' n'est pas necessaire
+
+    #differentes techniques d'affichage des attributs et des methodes
+    print(f"Mode possible{str(type(cell.mode))} = {cell.mode}")
+    print("Mode courant", str(type(cell.mode_courant)), "=", cell.mode_courant)
+    print("Mode courant =", cell.GetMode())
     
