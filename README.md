@@ -20,5 +20,5 @@ classDiagram
         +Marche()
         +GetMode()
         +Arret()
-    }
+}
 ```
