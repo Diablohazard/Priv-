@@ -14,7 +14,7 @@
 
 ```mermaid
 classDiagram
-    class Cellule {
+    class Robot {
         +str marque
         +bool state_OK
         +int nb_alarme
