@@ -9,13 +9,18 @@ class ProduitSurface(encapsulation.Produit):
     def __init__(self, mat, l, w, h, trait): #constructeur
         "Constructeur du produit avec traitement"
         super().__init__(mat, l, w, h) # classe de base/mere
+        assert trait in self.__surface, 'fatal: traitement inexistant %s' % trait
         self.__traitement = trait # attribut de la classe derivee/fille
 
-    def __str__(self):
-        "Affichage caracteristiques du produit traite"
-        str_trait = '{' + self.__traitement + '}'
-        return f"{super().__str__()} {str_trait}"
-    
+    @property
+    def traitement(self):
+        return self.__traitement
+
+    @traitement.setter
+    def traitement(self, trait):
+        assert trait in self.__surface, 'fatal: traitement inexistant %s' % trait
+        self.__traitement = trait
+
 
 # =====================================================
 # Jeu de test
