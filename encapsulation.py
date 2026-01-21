@@ -26,6 +26,14 @@ class Produit:
         self.__mass_kg = self.__volume_m3 * self.__DENSITY[self.__material]
         return self.__mass_kg
 
+    def get_length(self):
+        return self.__length_m
+    
+    def set_length(self, l):
+        self.__length_m = l / 1000.0
+        self.__volume_m3 = self.ComputeVolume()
+        self.__mass_kg = self.ComputeMass()
+
     def __str__(self):
         return f"material={self.__material} longueur=({self.__length_m}, largeur={self.__width_m}, hauteur={self.__height_m}) volume={self.__volume_m3}m3 mass={self.__mass_kg}kg"
 
@@ -40,12 +48,6 @@ if __name__ == "__main__":#structure conditionnelle de test
 
     print(p1)
 
-    p1.__length_m = 1
+    p1.set_length(1000)
     print(p1)
 
-    p1.ComputeVolume()
-    print(p1)
-
-    p1.__volume_m3 = p1.ComputeVolume()
-    p1.__mass_kg = p1.ComputeMass()
-    print(p1)
