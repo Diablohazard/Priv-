@@ -19,9 +19,11 @@ class Produit:
 
     # ========= Méthodes =========
     def ComputeVolume(self):
+        self.volume_m3 = self.length_m * self.width_m * self.height_m
         return self.volume_m3
 
     def ComputeMass(self):
+        self.mass_kg = self.volume_m3 * self.DENSITY[self.material]
         return self.mass_kg
 
     def __str__(self):
