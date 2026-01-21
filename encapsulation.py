@@ -26,10 +26,12 @@ class Produit:
         self.__mass_kg = self.__volume_m3 * self.__DENSITY[self.__material]
         return self.__mass_kg
 
-    def get_length(self):
+    @property
+    def length(self):
         return self.__length_m
-    
-    def set_length(self, l):
+
+    @length.setter
+    def length(self, l):
         self.__length_m = l / 1000.0
         self.__volume_m3 = self.ComputeVolume()
         self.__mass_kg = self.ComputeMass()
@@ -48,6 +50,8 @@ if __name__ == "__main__":#structure conditionnelle de test
 
     print(p1)
 
-    p1.set_length(1000)
+    print(p1.length)
+
+    p1.length = 1000
     print(p1)
 
