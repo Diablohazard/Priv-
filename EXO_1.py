@@ -5,8 +5,6 @@ class Robot:
 
     # ========= Attributs de classe =========
     marque = "FANUC"
-    state_OK = True
-    nb_alarme = 0
 
     # Positions outil (X, Y, Z)
     POSITIONS = {
@@ -16,9 +14,13 @@ class Robot:
         "Place": [100, 150, 230]
     }
 
-    # Position courante outil
-    pos_Tool = POSITIONS["init"]
+    # ========= Attributs d'instance =========
+    def __init__(self):
+        self.state_OK = True
+        self.nb_alarme = 0
+        self.pos_Tool = Robot.POSITIONS["init"]
 
+    # ========= Méthodes =========
     def Moveinit(self):
         self.pos_Tool = Robot.POSITIONS["init"]
 
@@ -32,31 +34,30 @@ class Robot:
         self.pos_Tool = Robot.POSITIONS["Place"]
 
     def RaiseDefault(self):
-        Robot.state_OK = False
-        Robot.nb_alarme += 1
+        self.state_OK = False
+        self.nb_alarme += 1
 
     def ClearDefault(self):
-        Robot.state_OK = True
+        self.state_OK = True
 
-        # ========= Méthodes =========
     def GetStatus(self):
         x, y, z = self.pos_Tool
         print("marque\tstate_OK\tnb_alarme\tX\tY\tZ")
-        print(f"{Robot.marque}\t{Robot.state_OK}\t{Robot.nb_alarme}\t\t{x}\t{y}\t{z}")
+        print(f"{Robot.marque}\t{self.state_OK}\t{self.nb_alarme}\t\t{x}\t{y}\t{z}")
         print(
             f"{Robot.marque} Status "
-            f"{'OK' if Robot.state_OK else 'DEFAULT'} "
-            f"({Robot.nb_alarme}) "
+            f"{'OK' if self.state_OK else 'DEFAULT'} "
+            f"({self.nb_alarme}) "
             f"Position X={x} Y={y} Z={z}"
         )
         print("-" * 60)
 
 
 # =====================================================
-# Jeu de test (conforme à l’énoncé)
+# Jeu de test
 # =====================================================
 
-if __name__ == "__main__": #structure conditionnelle de test
+if __name__ == "__main__":#structure conditionnelle de test
 
     print(Robot.marque)  # utilisation attribut de classe sans instanciation
 
