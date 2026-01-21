@@ -36,3 +36,15 @@ if __name__ == "__main__":#structure conditionnelle de test
 
     p1.length = 1000
     print(p1)
+
+    p1.traitement = "Peinture"
+    print(p1)
+
+    try:
+        p1.traitement = "Sablage" # traitement inexistant
+        print(p1)
+    except Exception as e:
+        print(e)
+
+    p1.traitement = "Ebavurage" # traitement inexistant
+    print(p1)
