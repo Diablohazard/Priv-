@@ -56,20 +56,22 @@ class Robot:
 # Jeu de test (conforme à l’énoncé)
 # =====================================================
 
-print(Robot.marque)  # utilisation attribut de classe sans instanciation
+if __name__ == "__main__": #structure conditionnelle de test
 
-rob1 = Robot()  # première instance
-rob2 = Robot()  # deuxième instance
+    print(Robot.marque)  # utilisation attribut de classe sans instanciation
 
-# Ordres sur robot 1
-rob1.GetStatus()
-rob1.MoveHome()
-rob1.RaiseDefault()
-rob1.GetStatus()
-rob1.ClearDefault()
-rob1.GetStatus()
+    rob1 = Robot()  # première instance
+    rob2 = Robot()  # deuxième instance
 
-# Ordres sur robot 2
-rob2.GetStatus()
-rob2.RaiseDefault()
-rob2.GetStatus()
+    # Ordres sur robot 1
+    rob1.GetStatus()
+    rob1.MoveHome()
+    rob1.RaiseDefault()
+    rob1.GetStatus()
+    rob1.ClearDefault()
+    rob1.GetStatus()
+
+    # Ordres sur robot 2
+    rob2.GetStatus()
+    rob2.RaiseDefault()
+    rob2.GetStatus()
