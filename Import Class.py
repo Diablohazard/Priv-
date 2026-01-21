@@ -1,13 +1,13 @@
-from syntaxe import Cellule as Cellule
+import syntaxe
 from EXO_1 import Robot
-from EXO_Multirobot import MultiRobot as mr
+import EXO_Multirobot as mr
 
 #===========================================
 
 if __name__ == "__main__":
-    cell = Cellule()
+    cell = syntaxe.Cellule()
     rob = Robot()
-    rob1 = mr()
+    rob1 = mr.MultiRobot()
 
     print("Mode courant =", cell.GetMode())
     rob.GetStatus()
