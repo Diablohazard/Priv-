@@ -5,9 +5,9 @@ from EXO_Multirobot import MultiRobot as mr
 #===========================================
 
 if __name__ == "__main__":
-    cell = Class01_Cellule()
+    cell = Cellule()
     rob = Robot()
-    rob1 = mr.MultiRobot()
+    rob1 = mr()
 
     print("Mode courant =", cell.GetMode())
     rob.GetStatus()
